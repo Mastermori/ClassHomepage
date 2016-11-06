@@ -1,0 +1,7 @@
+{
+	"Montag":{"1":"Englisch","2":"Englisch","3":"Spanisch/Latein","4":"Spanisch/Latein","5":"Mathe","6":" ","7":"Sport","8":"Sport"},
+	"Dienstag":{"1":"Physik","2":"Physik","3":"Mathe","4":"Chemie","5":"Chemie","6":" ","7":"Philosophie/Religion","8":"Philosophie/Religion"},
+	"Mittwoch":{"1":"Mathe","2":"Mathe","3":"Geschichte","4":"Geschichte","5":"PGW","6":" ","7":"Phi/Rel/AVM/Inf","8":"Phi/Rel/AVM/Inf"},
+	"Donnerstag":{"1":"Deutsch","2":"Deutsch","3":"Kunst/Musik","4":"Kunst/Musik","5":"Spanisch/Latein","6":" ","7":"Geographie","8":"Englisch"},
+	"Freitag":{"1":"Geographie","2":"PGW","3":"Phi/Rel/AVM/Inf","4":"Phi/Rel/AVM/Inf","5":"Deutsch","6":"Deutsch","7":"","8":""}
+}

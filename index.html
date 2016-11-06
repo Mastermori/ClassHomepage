@@ -7,69 +7,34 @@
 		<script src="jQuery/jquery.js"></script>
   </head>
   <body>
-    <div id="kopf">
-    <table border="0" style="width:100%">
-      <tr>
-        <td>
-          	
-        </td>
-        <td>
-          	Montag
-        </td>
-        <td>
-          	Dienstag
-        </td>
-        <td>
-        	Mittwoch
-        </td>
-        <td>
-        	Donnerstag
-        </td>
-        <td>
-        	Freitag
-        </td>
-      </tr>
-      <tr>
-        <td>
-          	1.
-        </td>
-        <td>
-          	Frei
-        </td>
-        <td>
-          	Mathe
-        </td>
-        <td>
-        	Deutsch
-        </td>
-        <td>
-        	Englisch
-        </td>
-        <td>
-        	Geschichte
-        </td>
-      </tr>
-      <tr>
-        <td>
-          	2.
-        </td>
-        <td>
-          	Frei
-        </td>
-        <td>
-          	Mathe
-        </td>
-        <td>
-        	Musik
-        </td>
-        <td>
-        	Englisch
-        </td>
-        <td>
-        	PGW
-        </td>
-      </tr>
-    </table>
-  </div>
+
+  	<script type="text/javascript">
+
+  	createTable = function(days){
+  		var myTable = "<table border='0' style='width:100%'><tr><td></td><td>Montag</td><td>Dienstag</td><td>Mittwoch</td><td>Donnerstag</td><td>Freitag</td></tr>";
+  		for(i = 1; i <= 8; i++){
+  			myTable += "<tr><td>"+i+". Stunde</td><td>"+days['Montag'][''+i]+"</td><td>"+days['Dienstag'][''+i]+"</td><td>"+days['Mittwoch'][''+i]+"</td><td>"+days['Donnerstag'][''+i]+"</td><td>"+days['Freitag'][''+i]+"</tr>";
+  		}
+		myTable += "</table>";
+		$(document.body).append(myTable);
+  	}
+
+  	checkAvailability = function(days){
+  		for(var day in days){
+			for(var val in day){
+				if(days[day][val] == "Frei"){
+					console.log("Am " + day + " ist die " + val + ". Stunde frei!");
+				}
+			}
+		}
+  	}
+
+  		$.getJSON("timeTable.json",function(days){
+  			console.log(days);
+  			createTable(days);
+  			checkAvailability(days);
+		});
+  	</script>
+
   </body>
 </html>
