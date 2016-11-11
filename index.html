@@ -9,9 +9,23 @@
   <body>
 
   	<script type="text/javascript">
-
-		testing = jQuery.parseHTML(https://stundenplan.hamburg.de/WebUntis/index.do;jsessionid=59714E54CDE9AA47A48D6FD48A4974CD.nodetc01#Timetable?type=1&formatId=2&id=121);
-		console.log(testing);
+		
+		var unirest = require('unirest');
+		unirest.get("https://mashape-community-urban-dictionary.p.mashape.com/define?term=wat")
+		.header("X-Mashape-Key", "omNgnSzeFSmshRPLzxuRGIEjKuIrp1NmWg0jsn4IMYjIluNMZH")
+		.header("Accept", "text/plain")
+		.end(function (result) {
+			console.log(result.status, result.headers, result.body);
+}		);
+		
+		
+		$.ajax({
+			url : "https://stundenplan.hamburg.de/WebUntis/index.do;jsessionid=59714E54CDE9AA47A48D6FD48A4974CD.nodetc01#Timetable?type=1&formatId=2&id=121",
+			success : function(result){
+				console.log("done!");
+				console.log(result);
+			}
+		});
 		
   	createTable = function(days){
   		var myTable = "<table border='0' style='width:100%'><tr><td></td><td>Montag</td><td>Dienstag</td><td>Mittwoch</td><td>Donnerstag</td><td>Freitag</td></tr>";
