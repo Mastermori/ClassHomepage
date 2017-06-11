@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  		<title>Gyle 9d</title>
+		<meta charset="UTF-8">
+     	<link rel=stylesheet type=text/css href="style.css">
+		<script src="jQuery/jquery.js"></script>
+  </head>
+  <body>
+
+  	<script type="text/javascript">
+		
+		var unirest = require('unirest');
+		unirest.get("https://mashape-community-urban-dictionary.p.mashape.com/define?term=wat")
+		.header("X-Mashape-Key", "omNgnSzeFSmshRPLzxuRGIEjKuIrp1NmWg0jsn4IMYjIluNMZH")
+		.header("Accept", "text/plain")
+		.end(function (result) {
+			console.log(result.status, result.headers, result.body);
+}		);
+		
+		
+	
+		
+  	createTable = function(days){
+  		var myTable = "<table border='0' style='width:100%'><tr><td></td><td>Montag</td><td>Dienstag</td><td>Mittwoch</td><td>Donnerstag</td><td>Freitag</td></tr>";
+  		for(i = 1; i <= 8; i++){
+  			myTable += "<tr><td>"+i+". Stunde</td><td>"+days['Montag'][''+i]+"</td><td>"+days['Dienstag'][''+i]+"</td><td>"+days['Mittwoch'][''+i]+"</td><td>"+days['Donnerstag'][''+i]+"</td><td>"+days['Freitag'][''+i]+"</tr>";
+  		}
+		myTable += "</table>";
+		$(document.body).append(myTable);
+  	}
+
+  	checkAvailability = function(days){
+  		for(var day in days){
+			for(var val in day){
+				if(days[day][val] == "Frei"){
+					console.log("Am " + day + " ist die " + val + ". Stunde frei!");
+				}
+			}
+		}
+  	}
+
+  		$.getJSON("timeTable.json",function(days){
+  			console.log(days);
+  			createTable(days);
+  			checkAvailability(days);
+		});
+  	</script>
+
+  </body>
+</html>
